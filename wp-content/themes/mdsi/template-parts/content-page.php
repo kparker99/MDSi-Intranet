@@ -9,9 +9,8 @@
 
 ?>
 
-<section class="grid">
+<section class="white">
 	<?php
-	
 	the_content();
 	?>
 

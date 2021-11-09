@@ -65,7 +65,7 @@ function mdsi_gutenberg_default_styles()
 add_action( 'init', 'mdsi_gutenberg_default_styles' );
 
 function mdsi_gutenberg_blocks() {
-    wp_register_script( 'custom-block-js', get_template_directory_uri() . '/js/customBlocks.js', array( 'wp-blocks' ));
+    wp_register_script( 'custom-block-js', get_template_directory_uri() . '/build/index.js', array( 'wp-blocks', 'wp-block-editor' ));
 
     register_block_type( 'mdsi/custom-mdsi', array(
         'editor_script' => 'custom-block-js'
