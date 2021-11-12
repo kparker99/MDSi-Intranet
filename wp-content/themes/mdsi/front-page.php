@@ -43,7 +43,8 @@
     </section> <!-- Announcements -->
 
     <section class="grid-4col light-gray">
-        <div class="card-no-margin mid-gray md">			
+        <div class="card-no-margin mid-gray md">	
+            <h2>Meet MDSi</h2>		
             <?php
                 echo do_shortcode( '[smartslider3 slider="2"]' );
             ?>
@@ -52,6 +53,7 @@
             <br>
         </div>
         <div class="card-no-margin blue sm">
+            <h2>Calendar</h2>
             <ul>
                 <li>November 1, 2021</li>
                 <li>November 3, 2021</li>

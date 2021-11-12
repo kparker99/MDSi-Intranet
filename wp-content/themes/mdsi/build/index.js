@@ -90,12 +90,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 
-const {
-  registerBlockType
-} = wp.blocks;
-const {
-  RichText
-} = wp.blockEditor;
+// import { registerBlockType } from @wordpress/blocks;
+// import { 
+//     RichText,
+//     InspectorControls,
+//     ColorPalette
+// } from @wordpress/block-editor;
+// import { PanelBody } from @wordpress/components;
 registerBlockType('mdsi/custom-mdsi', {
   // built-in attributes
   title: 'Call to Action',
@@ -108,6 +109,10 @@ registerBlockType('mdsi/custom-mdsi', {
       type: 'string',
       source: 'html',
       selector: 'h2'
+    },
+    titleColor: {
+      type: 'string',
+      default: 'black'
     },
     body: {
       type: 'string',
@@ -124,7 +129,8 @@ registerBlockType('mdsi/custom-mdsi', {
     } = _ref;
     const {
       title,
-      body
+      body,
+      titleColor
     } = attributes; // custom functions
 
     function onChangeTitle(newTitle) {
@@ -137,23 +143,50 @@ registerBlockType('mdsi/custom-mdsi', {
       setAttributes({
         body: newBody
       });
+    }
+
+    function onTitleColorChange(newColor) {
+      setAttributes({
+        titleColor: newColor
+      });
+    }
+
+    function onBodyColorChange(newColor) {
+      setAttributes({
+        bodyColor: newColor
+      });
     } // JSX
 
 
-    return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InspectorControls, {
+      style: {
+        marginBottom: '40px'
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(PanelBody, {
+      title: 'Font Color Settings'
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Select a Title color:")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ColorPalette, {
+      value: titleColor,
+      onChange: onTitleColorChange
+    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       class: "test"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
       key: "editable",
       tagName: "h2",
       placeholder: "Your title",
       value: attributes.title,
-      onChange: onChangeTitle
+      onChange: onChangeTitle,
+      style: {
+        color: titleColor
+      }
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
       key: "editable",
       tagName: "p",
       placeholder: "Your body",
       value: attributes.body,
-      onChange: onChangeBody
+      onChange: onChangeBody,
+      style: {
+        color: bodyColor
+      }
     }))];
   },
 
@@ -163,11 +196,16 @@ registerBlockType('mdsi/custom-mdsi', {
     } = _ref2;
     const {
       title,
-      body
+      body,
+      titleColor
     } = attributes;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       class: "test"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+      style: {
+        color: titleColor
+      }
+    }, title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
       tagName: "p",
       value: body
     }));

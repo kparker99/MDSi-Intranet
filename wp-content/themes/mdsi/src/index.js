@@ -1,5 +1,10 @@
-const { registerBlockType } = wp.blocks;
-const { RichText } = wp.blockEditor;
+// import { registerBlockType } from @wordpress/blocks;
+// import { 
+//     RichText,
+//     InspectorControls,
+//     ColorPalette
+// } from @wordpress/block-editor;
+const  { PanelBody } from @wordpress/components;
 
 registerBlockType('mdsi/custom-mdsi', {
     // built-in attributes
@@ -15,6 +20,10 @@ registerBlockType('mdsi/custom-mdsi', {
             source: 'html',
             selector: 'h2'
         },
+        titleColor: {
+            type: 'string',
+            default: 'black'
+        },
         body: {
             type: 'string',
             source: 'html',
@@ -27,7 +36,8 @@ registerBlockType('mdsi/custom-mdsi', {
     edit({ attributes, setAttributes }) {
         const {
             title,
-            body
+            body,
+            titleColor
         } = attributes;
 
         // custom functions
@@ -39,19 +49,36 @@ registerBlockType('mdsi/custom-mdsi', {
             setAttributes( { body: newBody } );
         }
 
+        function onTitleColorChange(newColor) {
+            setAttributes( { titleColor: newColor } );
+        }
+
+        function onBodyColorChange(newColor) {
+            setAttributes( { bodyColor: newColor } );
+        }
+
         // JSX
         return ([
+            <InspectorControls style={{ marginBottom: '40px' }}>
+                <PanelBody title={ 'Font Color Settings' }>
+                    <p><strong>Select a Title color:</strong></p>
+                    <ColorPalette  value={ titleColor }
+                                    onChange={ onTitleColorChange } />
+                </PanelBody>
+            </InspectorControls>,
             <div class="test">
                 <RichText   key="editable"
                             tagName="h2"
                             placeholder="Your title"
                             value={ attributes.title }
-                            onChange={ onChangeTitle }/>
+                            onChange={ onChangeTitle }
+                            style={ { color: titleColor } } />
                 <RichText   key="editable"
                             tagName="p"
                             placeholder="Your body"
                             value={ attributes.body }
-                            onChange={ onChangeBody }/>
+                            onChange={ onChangeBody }
+                            style={ { color: bodyColor } } />
             </div>
         ]);   
     },
@@ -59,12 +86,13 @@ registerBlockType('mdsi/custom-mdsi', {
     save({ attributes }) {
         const {
             title,
-            body
+            body,
+            titleColor
         } = attributes;
 
         return (
             <div class="test">
-                <h2>{ title }</h2>
+                <h2 style={ { color: titleColor } }>{ title }</h2>
                 <RichText.Content   tagName="p" 
                                     value={ body }
                                     />
