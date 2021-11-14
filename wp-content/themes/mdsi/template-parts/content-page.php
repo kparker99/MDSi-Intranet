@@ -9,7 +9,7 @@
 
 ?>
 
-<section class="white">
+<section>
 	<?php
 	the_content();
 	?>

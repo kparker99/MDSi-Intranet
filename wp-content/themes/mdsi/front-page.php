@@ -62,10 +62,10 @@
                 <li>December 19, 2021</li>
             </ul>
         </div>
-        <div class="card-no-margin dark sm">			
+        <div class="sm">			
             <br>
         </div>
-        <div class="card-no-margin blue sm">
+        <div class="card-no-margin blue md">
             <br>
         </div>
         <div class="card-no-margin sm dark">
@@ -77,20 +77,6 @@
             <br>
             <br>
             <br>
-        </div>
-    </section>
-
-    <section class="white">
-        <div class="card-no-margin x-lg blue">
-            <div class="card white">
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-            </div>
         </div>
     </section>
 </main><!-- #main -->

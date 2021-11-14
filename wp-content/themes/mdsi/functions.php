@@ -181,12 +181,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 /**
- * Custom Gutenberg blocks
- */
-
-require get_template_directory() . '/inc/gutenberg.php';
-
-/**
  * Blog excerpt customization
  */ 				
 
