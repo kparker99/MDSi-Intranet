@@ -28,10 +28,10 @@
 
 	<!-- Sidebar navgation -->
 	<nav>
-		<?php if ( has_custom_logo() ) : ?>
-			<?php the_custom_logo(); ?>
-		<?php endif; ?>
-		
+		<?php 
+        if ( function_exists( 'the_custom_logo' ) ) {
+            the_custom_logo();
+        }?>
 		<?php
 		wp_nav_menu(
 			array(
