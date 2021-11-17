@@ -400,12 +400,6 @@ html {
 --------------------------------------------- */
 
 :root {
-	--link-hover: var(--green);
-	--header-bg: var(--light-gray);
-	--main-bg: var(--dark-gray);
-	--top-menu-bg: var(--white); 
-	--text: var(--white);	
-
 	--blue: #4ca7fc;
 	--dark-blue: #0682f6;
 	--white: white;
@@ -690,7 +684,7 @@ main, body {
 body {
   box-sizing: border-box;
   display: grid;
-  background: var(--main-bg);
+  background: var(--dark-gray);
   width: 100vw;
   height: 100vh;
   grid-template-areas:  "nav head"
@@ -701,7 +695,7 @@ body {
 
 header {
 	grid-area: head;
-	background: var(--main-bg);
+	background: var(--dark-gray);
 	display: flex;
 	padding-right: 4em;
 	align-items: center;
@@ -836,7 +830,9 @@ main::-webkit-scrollbar-thumb {
 	position: relative;
 	overflow: hidden;
 	color: var(--dark-gray);
-	box-shadow: 10px 8px 11px -7px rgba(0,0,0,0.1);
+	/* box-shadow: 10px 8px 11px -7px rgba(0,0,0,0.1); */
+	-webkit-box-shadow: 1px 3px 16px -2px rgba(33,33,33,0.73); 
+	box-shadow: 1px 3px 16px -2px rgba(33,33,33,0.73);
 	transform-style: preserve-3d;
 	transform: perspective(1000px);
 	z-index: 2;
