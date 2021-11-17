@@ -22,7 +22,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const TEMPLATE = [['core/columns', {
-  backgroundColor: 'yellow',
   verticalAlignment: 'center'
 }, [['core/column', {
   templateLock: 'insert'

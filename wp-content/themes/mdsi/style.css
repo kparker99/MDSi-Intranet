@@ -989,6 +989,24 @@ main::-webkit-scrollbar-thumb {
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
+/* WP Event Aggregator
+--------------------------------------------- */
+.img-placeholder {
+	display: none;
+}
+
+.wpea_frontend_archive .archive-event .wepa_event {
+	height: 100px;
+	display: flex;
+}
+
+.event_details {
+	width: 100%;
+}
+
+.details > * {
+	color: var(--dark-gray)
+}
 
 /* Jetpack infinite scroll
 --------------------------------------------- */

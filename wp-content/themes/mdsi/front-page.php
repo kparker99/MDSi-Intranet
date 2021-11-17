@@ -64,17 +64,18 @@
         </div>
         <div class="card-no-margin blue sm">
             <h2>Calendar</h2>
-            <?php echo do_shortcode( 
-                '[ics_calendar url="https://west.exch081.serverdata.net/owa/calendar/92cb0289b03b44a0bf6c4755282decc2@mdsiinc.com/2abea63f51264804a84a4f2a092d0e785737348522250475001/calendar.ics
-                view="list"
-                limitdays="60"]' ) ?>
+            <?php echo do_shortcode( '[wp_events col="1" posts_per_page="3"]' ) ?>
+            <div>
+                <a href="https://west.exch081.serverdata.net/owa/calendar/92cb0289b03b44a0bf6c4755282decc2@mdsiinc.com/22ab49d212484fddb68e943e0c62108e6340050310078740805/calendar.html">
+                    More Events
+                </a>
+            </div>
         </div>
         <div class="sm">			
             <br>
         </div>
         <div class="card-no-margin blue md">
-            <h2>Calendar</h2>
-            <iframe class="responsive-iframe" src="https://west.exch081.serverdata.net/owa/calendar/92cb0289b03b44a0bf6c4755282decc2@mdsiinc.com/22ab49d212484fddb68e943e0c62108e6340050310078740805/calendar.html" width=auto height="500"></iframe>
+            <h2>Today in MDSi</h2>
         </div>
         <div class="card-no-margin sm dark">
             <br>

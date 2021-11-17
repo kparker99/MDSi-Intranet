@@ -8,7 +8,7 @@
 /wp-content/plugins/*
 /wp-content/uploads
 /wp-content/upgrade
-!/wp-content/plugins/todo-list/
+!/wp-content/plugins/mdsi-custom-blocks/
 !/wp-content/themes/mdsi
 
 # ignore this file
