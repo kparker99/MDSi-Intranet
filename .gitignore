@@ -26,6 +26,7 @@ node_modules/
 *.sql
 *.sqlite
 *.DS_Store
+*.docx
 
 # don't ignore this file
 !.gitignore

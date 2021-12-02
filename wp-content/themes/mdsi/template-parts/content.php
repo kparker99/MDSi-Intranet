@@ -10,7 +10,7 @@
 ?>
 
 <section>
-	<div class="card blue">
+	<div class="container light-gray">
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1>', '</h1>' );

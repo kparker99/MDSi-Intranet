@@ -17,7 +17,7 @@
     <div class="line">
         <img src="wp-content\themes\mdsi\img\dot-line.svg" width="50" alt="line">
     </div>
-    <section class="grid">
+    <section class="grid dark-gray">
         <?php 
             $count = 1;
 
@@ -31,11 +31,11 @@
             if ( $count == 3 ) { $class = 'light-gray third'; };
         ?>
 
-        <div class="card slideR <?php echo $class; ?>">			
+        <a href="<?php the_permalink() ?>" class="card shine slideR <?php echo $class; ?>">			
             <h2><?php the_title(); ?></h2>
             <?php the_excerpt(__('(more…)')); ?>
-            <div class="experiment-link"><a href="<?php the_permalink() ?>" class="btn">More</a></div>
-        </div>
+            <!-- <a href="<?php the_permalink() ?>" class="btn dark-gray">More</a> -->
+        </a>
 
         <?php 
             // Repeat the process and reset once it hits the limit
@@ -64,12 +64,67 @@
         </div>
         <div class="card-no-margin blue sm">
             <h2>Calendar</h2>
-            <?php echo do_shortcode( '[wp_events col="1" posts_per_page="3"]' ) ?>
-            <div>
-                <a href="https://west.exch081.serverdata.net/owa/calendar/92cb0289b03b44a0bf6c4755282decc2@mdsiinc.com/22ab49d212484fddb68e943e0c62108e6340050310078740805/calendar.html">
-                    More Events
+            <ul>    
+
+                <?php // Let's get the data we need to loop through below
+                //$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                $args = array(
+                    'post_type' => 'event',
+                    'posts_per_page' => '5',
+                    'post_status'  =>  'publish',
+                    'order' => 'ASC',
+                );
+                $event_query = new WP_Query( $args ); ?>
+
+
+                <?php if ( $event_query->have_posts() ) : ?>
+
+                    <!-- pagination here -->
+
+                    <!-- the loop -->
+                    <?php while ( $event_query->have_posts() ) : $event_query->the_post(); ?>
+
+                <li>
+                <div class="featured_tag"></div>
+
+
+                <?php if ( '' != get_the_post_thumbnail() ) { ?>
+                <a class="post_img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                <?php the_post_thumbnail('event-thumbnail'); ?>
                 </a>
-            </div>
+                <?php } else { ?>
+                <a class="post_img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                <img src="http://aishaarab.com/wp-content/uploads/2014/08/DefaultEvent-125x75.png" alt="" />
+                </a>
+                <?php } ?>
+
+                <h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
+
+                <p class="timing"> 
+                <span>Start Date: </span><?php meta('event-start-date'); ?><br>
+                <span>End Date: </span><?php meta('event-end-date'); ?><br>
+                <span>Time: </span><?php meta('event_time'); ?><br>
+                </p>
+
+                <p class="address"><span>Location :</span> <br><?php meta('event_address'); ?>, <?php meta('event_city'); ?>, <?php meta('event_state'); ?>, <?php meta('event_country'); ?></p>
+                <div class="clear"></div>
+                <p class="bottom">
+                <a class="read_more" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">Read More</a>
+                </p>
+
+                </li>
+
+
+                <!-- #post-<?php the_ID(); ?> -->
+
+                <?php endwhile; else: ?>  
+                <p> 
+                    <?php _e('No upcoming events'); ?>  
+                </p>  
+                <?php endif; ?> <?php //wp_reset_query(); ?>
+
+
+                </ul>
         </div>
         <div class="sm">			
             <br>
