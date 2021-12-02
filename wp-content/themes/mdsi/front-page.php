@@ -34,7 +34,6 @@
         <a href="<?php the_permalink() ?>" class="card shine slideR <?php echo $class; ?>">			
             <h2><?php the_title(); ?></h2>
             <?php the_excerpt(__('(more…)')); ?>
-            <!-- <a href="<?php the_permalink() ?>" class="btn dark-gray">More</a> -->
         </a>
 
         <?php 
@@ -49,7 +48,7 @@
         <img src="wp-content\themes\mdsi\img\white-dot-line.svg" width="500" alt="white-lines">
     </div>
 
-    <section class="grid-4col light-gray">
+    <section class="grid-4col">
         <div class="card-no-margin mid-gray md">	
             <h2>Meet MDSi</h2>		
             <?php
@@ -64,67 +63,32 @@
         </div>
         <div class="card-no-margin blue sm">
             <h2>Calendar</h2>
-            <ul>    
-
-                <?php // Let's get the data we need to loop through below
-                //$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                $args = array(
-                    'post_type' => 'event',
-                    'posts_per_page' => '5',
-                    'post_status'  =>  'publish',
-                    'order' => 'ASC',
-                );
-                $event_query = new WP_Query( $args ); ?>
-
-
-                <?php if ( $event_query->have_posts() ) : ?>
-
-                    <!-- pagination here -->
-
-                    <!-- the loop -->
-                    <?php while ( $event_query->have_posts() ) : $event_query->the_post(); ?>
-
-                <li>
-                <div class="featured_tag"></div>
-
-
-                <?php if ( '' != get_the_post_thumbnail() ) { ?>
-                <a class="post_img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                <?php the_post_thumbnail('event-thumbnail'); ?>
+                <a href="#" class="cal-event">
+                    <div class="cal-icon">
+                        <i class="far fa-calendar-alt fa-5x"></i>
+                    </div>
+                    <div class="cal-desc">
+                        <h3>MDSi Christmas Party</h3>
+                    </div>
                 </a>
-                <?php } else { ?>
-                <a class="post_img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                <img src="http://aishaarab.com/wp-content/uploads/2014/08/DefaultEvent-125x75.png" alt="" />
-                </a>
-                <?php } ?>
 
-                <h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
+                <?php 
+                    // Ensure the global $post variable is in scope
+                    global $post;
+                    
+                    // Retrieve the next 5 upcoming events
+                    $events = tribe_get_events( [ 
+                        'posts_per_page' => 5,
+                        'start_date'     => 'now' 
+                        ] );
 
-                <p class="timing"> 
-                <span>Start Date: </span><?php meta('event-start-date'); ?><br>
-                <span>End Date: </span><?php meta('event-end-date'); ?><br>
-                <span>Time: </span><?php meta('event_time'); ?><br>
-                </p>
-
-                <p class="address"><span>Location :</span> <br><?php meta('event_address'); ?>, <?php meta('event_city'); ?>, <?php meta('event_state'); ?>, <?php meta('event_country'); ?></p>
-                <div class="clear"></div>
-                <p class="bottom">
-                <a class="read_more" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">Read More</a>
-                </p>
-
-                </li>
-
-
-                <!-- #post-<?php the_ID(); ?> -->
-
-                <?php endwhile; else: ?>  
-                <p> 
-                    <?php _e('No upcoming events'); ?>  
-                </p>  
-                <?php endif; ?> <?php //wp_reset_query(); ?>
-
-
-                </ul>
+                    foreach ( $events as $post ) {
+                        setup_postdata( $post );
+                        
+                        echo '<h4>' . $post->post_title . '</h4>';
+                        echo ' ' . tribe_get_start_date( $post ) . ' ';
+                    }
+                ?>
         </div>
         <div class="sm">			
             <br>

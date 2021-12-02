@@ -683,7 +683,7 @@ main, body {
 body {
   box-sizing: border-box;
   display: grid;
-  /* background: var(--dark-gray); */
+  background: var(--light-gray);
   width: 100vw;
   height: 100vh;
   grid-template-areas:  "nav head"
@@ -792,7 +792,7 @@ main {
 }
 
 
-/* Front page 
+/* Front page animation
 --------------------------------------------- */
 .slideR {
 	animation-name: slideInR;
@@ -814,6 +814,9 @@ main {
 	animation-duration: 3s;
 }
 
+/* Front page decorations
+--------------------------------------------- */
+
 .line {
 	position: absolute;
 	left: 1em;
@@ -831,6 +834,20 @@ main {
 	right: 0;
 	top: 130px;
 	z-index: 1;
+}
+
+/* Front page calendar
+--------------------------------------------- */
+.cal-event {
+	display: flex;
+}
+
+.cal-icon {
+
+}
+
+.cal-desc {
+
 }
 
 /* Cards
