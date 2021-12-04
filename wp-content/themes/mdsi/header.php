@@ -27,35 +27,24 @@
 	<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'mdsi' ); ?></button> -->
 
 	<!-- Sidebar navgation -->
-	<nav>
+	<header>
 		<?php 
         if ( function_exists( 'the_custom_logo' ) ) {
             the_custom_logo();
         }?>
+	</header><!-- Sidebar navigation -->
+
+	<!-- Top navigation -->
+	<nav>
 		<?php
 		wp_nav_menu(
 			array(
 				'menu'			  => 'Primary',
 				'theme_location'  => 'menu-1',
 				'menu_id'         => false,
-				'menu_class'	  => 'nav-list',
-				'container'       => false
-			)
-		);
-		?>
-	</nav><!-- Sidebar navigation -->
-
-	<!-- Top navigation -->
-	<header>
-		<?php
-		wp_nav_menu(
-			array(
-				'menu'			  => 'Secondary',
-				'theme_location'  => 'menu-2',
-				'menu_id'         => false,
 				'menu_class'	  => false,
 				'container'       => false
 			)
 		);
 		?>
-	</header><!-- Top navigation -->
+	</nav><!-- Top navigation -->

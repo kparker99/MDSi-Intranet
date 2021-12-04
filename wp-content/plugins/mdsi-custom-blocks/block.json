@@ -1,0 +1,59 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "create-block/mdsi-custom-blocks",
+	"version": "0.1.0",
+	"title": "Mdsi Custom Blocks",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"supports": {
+		"align": [ "wide", "full" ],
+		"html": false
+	},
+	"keywords": [ "mdsi", "custom" ],
+	"textdomain": "mdsi-custom-blocks",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "none"
+		},
+        "title": {
+            "type": "string",
+            "source": "html",
+            "selector": "h2"
+        },
+        "backgroundColor": {
+            "type": "string"
+        },
+        "textColor": {
+            "type": "string"
+        },
+		"affiliateLink": {
+			"type": "string",
+			"default": ""
+		},
+		"linkLabel": {
+			"type": "string",
+			"default": "Check it out!"
+		},
+		"hasLinkNofollow": {
+			"type": "boolean",
+			"default": false
+		}
+    },
+	"styles": [
+		{
+			"name": "default",
+			"label": "Default",
+			"isDefault": true
+		},
+		{
+			"name": "border",
+			"label": "Border"
+		}
+	]
+}
