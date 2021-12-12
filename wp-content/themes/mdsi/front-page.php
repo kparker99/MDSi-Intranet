@@ -15,9 +15,9 @@
 <main>
     <!-- Announcements -->
     <div class="line">
-        <img src="wp-content\themes\mdsi\img\dot-line.svg" width="50" alt="line">
+        <img src="wp-content\themes\mdsi\assets\img\dot-line.svg" width="50" alt="line">
     </div>
-    <section class="grid dark-gray">
+    <section class="grid-3col dark-gray">
         <?php 
             $count = 1;
 
@@ -45,10 +45,10 @@
     </section> <!-- Announcements -->
 
     <div class="white-lines">
-        <img src="wp-content\themes\mdsi\img\white-dot-line.svg" width="500" alt="white-lines">
+        <img src="wp-content\themes\mdsi\assets\img\white-dot-line.svg" width="500" alt="white-lines">
     </div>
 
-    <section class="grid-4col">
+    <section class="grid-4col half-gray">
         <div class="card-no-margin mid-gray span-2">	
             <h2>Meet MDSi</h2>		
             <?php
@@ -56,7 +56,7 @@
             ?>
         </div>
         <div class="curve">
-            <img src="wp-content\themes\mdsi\img\curves.svg" width="400" alt="">
+            <img src="wp-content\themes\mdsi\assets\img\curves.svg" width="400" alt="">
         </div>
         <div class="card-no-margin sm dark-gray span-1">			
             <p>[add content]</p>
@@ -101,5 +101,3 @@
         </div>
     </section>
 </main><!-- #main -->
-
-<script src="wp-content\themes\mdsi\js\navigation.js"></script>

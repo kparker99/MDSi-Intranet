@@ -20,31 +20,24 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body>
 <?php wp_body_open(); ?>
-
-	<!-- <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mdsi' ); ?></a> -->
-	<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'mdsi' ); ?></button> -->
-
-	<!-- Sidebar navgation -->
 	<header>
 		<?php 
         if ( function_exists( 'the_custom_logo' ) ) {
             the_custom_logo();
         }?>
-	</header><!-- Sidebar navigation -->
-
-	<!-- Top navigation -->
-	<nav>
-		<?php
-		wp_nav_menu(
-			array(
-				'menu'			  => 'Primary',
-				'theme_location'  => 'menu-1',
-				'menu_id'         => false,
-				'menu_class'	  => false,
-				'container'       => false
-			)
-		);
-		?>
-	</nav><!-- Top navigation -->
+		<nav>
+			<?php
+			wp_nav_menu(
+				array(
+					'menu'			  => 'Primary',
+					'theme_location'  => 'menu-1',
+					'menu_id'         => false,
+					'menu_class'	  => false,
+					'container'       => false
+				)
+			);
+			?>
+		</nav>
+	</header>

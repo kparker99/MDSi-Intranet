@@ -197,6 +197,3 @@ function remove_hellip( $more ) {
 	return '...';
 }
 add_filter( 'excerpt_more', 'remove_hellip');
-
-
-
