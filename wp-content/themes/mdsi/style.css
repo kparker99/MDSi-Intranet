@@ -37,6 +37,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Components
 	- Navigation
 	- Posts and pages
+	- Sub Pages
 	- Comments
 	- Widgets
 	- Media
@@ -399,6 +400,7 @@ html {
 /* Typography
 --------------------------------------------- */
 
+/* Colors */
 :root {
 	--blue: #4ca7fc;
 	--dark-blue: #0682f6;
@@ -500,6 +502,10 @@ header, nav {
 
 /* Elements
 --------------------------------------------- */
+html {
+	background-color: var(--light-gray);
+}
+
 ul,
 ol {
 	margin: 0;
@@ -771,7 +777,7 @@ nav ul ul a:visited {
 /* Breadcrumb */
 .breadcrumb {
 	padding: .5em 0 .5em 4em;
-	background: var(--light-gray);
+	background: var(--mid-gray);
 }
 
 a.non-active-page,
@@ -787,18 +793,93 @@ a.active-page:visited {
 
 /* Posts and Pages
 --------------------------------------------- */
-/* Sub Pages */
+
+/* Sub Pages
+--------------------------------------------- */
 .subpage {
-	margin: 0 4em;
+	margin: 2em 4em;
+	padding: 1em 2em;
+	background: var(--white);
+	border-radius: 20px;
+	-webkit-box-shadow: 0px 3px 6px 0px rgba(122,122,122,0.45); 
+	box-shadow: 0px 3px 6px 0px rgba(122, 122, 122, 0.45);
+	position: relative;
 }
 
-.subpage-title {
-	font-size: 5rem;
-	line-height: 4rem;
-	margin-top: 0;
-	text-transform: uppercase;
-	color: var(--half-gray);
-	text-align: center;
+/* Reset all elements */
+.subpage > * {
+	margin: 0;
+	padding: 0;
+}
+
+.subpage ul {
+	list-style-type: circle;
+	margin-left: 2em;
+	line-height: 1.7em;
+}
+
+.subpage ol {
+	list-style: decimal;
+	list-style-type: decimal;
+	margin-left: 2em;
+	line-height: 1.7em;
+}
+
+.subpage title {
+	margin: 0;
+}
+
+.subpage h1 {
+	border-bottom: 2px solid var(--mid-gray);
+	color: var(--dark-blue);
+	margin-bottom: 1em;
+}
+
+.subpage h2, 
+.subpage h3, 
+.subpage h4, 
+.subpage h5 {
+	margin-top: 1em;
+	color: var(--blue);
+}
+
+.subpage p,
+.subpage table {
+	margin-bottom: 1em;
+	max-width: 75ch;
+}
+
+/* Subpage Links */
+.subpage a,
+.subpage a:visited {
+	color: var(--dark-gray);
+}
+
+.subpage a:hover {
+	text-decoration: none;
+}
+
+/* Subpage Tables */
+
+.subpage table {
+	border-collapse: collapse;
+	border-radius: 1em;
+	overflow: hidden;
+}
+
+.subpage td {
+	padding: .25em .5em;
+	border: 1px solid var(--white);
+}
+
+.subpage tr {
+	background-color: var(--light-gray);
+	border: 1px solid var(--white);
+}
+
+.subpage tr:first-child {
+	background-color: var(--mid-gray);
+	border: 1px solid var(--white);
 }
 
 /* Front page animation

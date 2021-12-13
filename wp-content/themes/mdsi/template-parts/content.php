@@ -9,37 +9,16 @@
 
 ?>
 
-<section>
-	<div class="container light-gray">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1>', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+<main>
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<!-- .entry-meta -->
-		<?php endif; ?>
+    <div class="breadcrumb">
+        <a href="<?php echo home_url(); ?>" class="non-active-page">Home</a> <span class="active-page"> > </span><a href="#" class="active-page"><?php the_title(); ?></a>
+    </div>
 
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'mdsi' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
-		?>
-	</div>
+    <section class="subpage">
+        <h1><?php the_title( ) ?></h1>
+        <?php the_content(); ?>
+    </section>
 
-</section>
+</main>
 	

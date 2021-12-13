@@ -9,13 +9,18 @@
 
 ?>
 
-<section>
-	<?php
-	the_content();
-	?>
+<main>
 
+    <div class="breadcrumb">
+        <a href="<?php echo home_url(); ?>" class="non-active-page">Home</a> <span class="active-page"> > </span><a href="#" class="active-page"><?php the_title(); ?></a>
+    </div>
 
-</section><!-- .entry-content -->
+    <section class="subpage">
+        <h1><?php the_title( ) ?></h1>
+        <?php the_content(); ?>
+    </section>
 
+</main>
+	
 
 
