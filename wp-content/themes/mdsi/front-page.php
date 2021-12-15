@@ -58,46 +58,112 @@
         <div class="curve">
             <img src="wp-content\themes\mdsi\assets\img\curves.svg" width="400" alt="">
         </div>
-        <div class="card-no-margin sm dark-gray span-1">			
-            <p>[add content]</p>
+        <div class="card-no-margin sm blue span-1">			
+            <h2>Events</h2>
+            <?php 
+                // Ensure the global $post variable is in scope
+                global $post;
+                
+                // Retrieve the next 5 upcoming events
+                $events = tribe_get_events( [ 
+                    'posts_per_page' => 5,
+                    'start_date'     => 'now',
+                    'tag'            => array(
+                        'Holiday',
+                        'Event'
+                    )
+                    ] );
+
+                foreach ( $events as $post ) {
+                    setup_postdata( $post );
+                    $title = $post->post_title;
+                    // $start = tribe_get_start_date( $post );
+            ?>
+                    
+            <a href="<?php echo tribe_get_event_link() ?>" class="cal-event">
+                <div class="cal-icon">
+                    <i class="fas fa-calendar fa-2x"></i>                    
+                </div>
+                <div class="cal-desc">
+                    <h3><?php echo $post->post_title; ?></h3>
+                    <p><?php echo tribe_get_start_date( $post, false ); ?></p>
+                </div>
+            </a>
+
+            <?php
+                }
+            ?>
         </div>
         <div class="card-no-margin dark-gray span-1">
             <p>[add content]</p>
         </div>
-        <div class="card-no-margin blue span-2">
-            <h2>Calendar</h2>
-                <?php 
-                    // Ensure the global $post variable is in scope
-                    global $post;
-                    
-                    // Retrieve the next 5 upcoming events
-                    $events = tribe_get_events( [ 
-                        'posts_per_page' => 5,
-                        'start_date'     => 'now' 
-                        ] );
-
-                    foreach ( $events as $post ) {
-                        setup_postdata( $post );
-                        $title = $post->post_title;
-                        // $start = tribe_get_start_date( $post );
-                ?>
-                        
-                <a href="<?php echo tribe_get_event_link() ?>" class="cal-event">
-                    <div class="cal-icon">
-                        <i class="far fa-calendar-alt fa-2x"></i>
-                    </div>
-                    <div class="cal-desc">
-                        <h3><?php echo $post->post_title; ?></h3>
-                        <p><?php echo tribe_get_start_date( $post, false ); ?></p>
-                    </div>
-                </a>
-
-                <?php
-                    }
-                ?>
+        <div class="card-no-margin light-gray span-2">
+            <p>[add content]</p>
         </div>
         <div class="card-no-margin md white span-2">
-            <p>[add content]</p>
+            <h2 class="birthday-anniversary">Birthdays</h2>
+            <?php 
+                // Ensure the global $post variable is in scope
+                global $post;
+                
+                // Retrieve the next 5 upcoming events
+                $events = tribe_get_events( [ 
+                    'posts_per_page' => 5,
+                    'start_date'     => 'now',
+                    'tag'            => 'Birthday' 
+                    ] );
+
+                foreach ( $events as $post ) {
+                    setup_postdata( $post );
+                    $title = $post->post_title;
+                    // $start = tribe_get_start_date( $post );
+            ?>
+                    
+            <a href="<?php echo tribe_get_event_link() ?>" class="birthday-anniversary-event">
+                <div class="birthday-anniversary-icon">
+                    <i class="fas fa-birthday-cake"></i>                    
+                </div>
+                <div class="birthday-anniversary-desc">
+                    <h4><?php echo $post->post_title; ?></h4>
+                    <p><?php echo tribe_get_start_date( $post, false ); ?></p>
+                </div>
+            </a>
+
+            <?php
+                }
+            ?>
+
+            <h2 class="birthday-anniversary">Anniversaries</h2>
+            <?php 
+                // Ensure the global $post variable is in scope
+                global $post;
+                
+                // Retrieve the next 5 upcoming events
+                $events = tribe_get_events( [ 
+                    'posts_per_page' => 5,
+                    'start_date'     => 'now',
+                    'tag'            => 'Anniversary' 
+                    ] );
+
+                foreach ( $events as $post ) {
+                    setup_postdata( $post );
+                    $title = $post->post_title;
+                    // $start = tribe_get_start_date( $post );
+            ?>
+                    
+            <a href="<?php echo tribe_get_event_link() ?>" class="birthday-anniversary-event">
+                <div class="birthday-anniversary-icon">
+                    <i class="fas fa-gift"></i>                   
+                </div>
+                <div class="birthday-anniversary-desc">
+                    <h4><?php echo $post->post_title; ?></h4>
+                    <p><?php echo tribe_get_start_date( $post, false ); ?></p>
+                </div>
+            </a>
+
+            <?php
+                }
+            ?>
         </div>
     </section>
 </main><!-- #main -->

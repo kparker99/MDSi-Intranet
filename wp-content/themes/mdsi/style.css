@@ -711,7 +711,7 @@ body::before {
 	display: grid;
 	position: relative;
 	padding: 1em 3em;
-	gap: 1em;
+	gap: 1.5em;
 }
 
 /*--------------------------------------------------------------
@@ -927,8 +927,9 @@ a.active-page:visited {
 	z-index: 1;
 }
 
-/* Front page calendar
+/* Front page calendars
 --------------------------------------------- */
+/* Events Calendar */
 .cal-event {
 	display: flex;
 	border-radius: 20px;
@@ -940,18 +941,29 @@ a.active-page:visited {
 
 .cal-icon {
 	padding: .5em;
+	display: flex;
+	align-items: center;
 }
 
 .cal-icon i {
 	background-color: var(--light-gray);
 	padding: .25em;
 	border-radius: 10px;
+	color: var(--dark-gray);
 }
 
 .cal-desc {
-	padding: 0 1em;
-	line-height: .5em;
+	padding: 0 .5em;
+	line-height: 1em;
 	flex-grow: 1;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.cal-desc h3 {
+	padding-bottom: .25em;
 }
 
 .cal-desc h3,
@@ -959,6 +971,7 @@ a.active-page:visited {
 	font-family: proxima-nova, sans-serif;
 	font-style: normal;
 	font-size: 1rem;
+	margin: 0;
 }
 
 .cal-desc h3 {
@@ -978,6 +991,65 @@ a.active-page:visited {
 
 .fa-calendar-alt {
 	color: var(--dark-gray);
+}
+
+/* Birthday/Anniversary Calendar */
+.birthday-anniversary{
+	border-bottom: 1px solid var(--mid-gray);
+}
+
+.birthday-anniversary-event {
+	display: flex;
+	margin: 1em 0;
+}
+
+.birthday-anniversary-icon {
+	display: flex;
+	align-items: center;
+}
+
+.birthday-anniversary-icon i {
+	background-color: var(--light-gray);
+	padding: .5em;
+	border-radius: 50%;
+	color: var(--dark-gray);
+}
+
+.birthday-anniversary-desc {
+	padding: 0 .5em;
+	line-height: 1em;
+	flex-grow: 1;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.birthday-anniversary-desc h4 {
+	padding-bottom: .25em;
+}
+
+.birthday-anniversary-desc h4,
+.birthday-anniversary-desc p {
+	font-family: proxima-nova, sans-serif;
+	font-style: normal;
+	font-size: .9rem;
+	margin: 0;
+}
+
+.birthday-anniversary-desc h4 {
+	font-weight: 600;
+	color: var(--dark-gray);
+}
+
+.birthday-anniversary-desc p {
+	color: var(--half-gray);
+}
+
+.birthday-anniversary-event a:hover,
+.birthday-anniversary-desc h4:hover,
+.birthday-anniversary-event:hover {
+	text-decoration: none;
 }
 
 /* Cards
