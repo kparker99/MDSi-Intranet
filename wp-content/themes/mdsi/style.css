@@ -765,7 +765,7 @@ nav ul ul {
 	border-radius: 10px;
 }
 
-.sub-menu li:hover {
+.sub-menu li a:hover {
 	color: var(--green);
 }
 

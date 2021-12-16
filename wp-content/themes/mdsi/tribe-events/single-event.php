@@ -67,6 +67,7 @@ $title = apply_filters( 'tribe_events_single_event_title_html', the_title( $befo
 	<?php while ( have_posts() ) :  the_post(); ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<!-- Event featured image, but exclude link -->
+			<h1><?php the_title(); ?></h1>
 			<?php echo tribe_event_featured_image( $event_id, 'full', false ); ?>
 
 			<!-- Event content -->
