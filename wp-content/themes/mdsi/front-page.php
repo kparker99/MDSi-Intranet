@@ -14,10 +14,10 @@
 
 <main>
     <!-- Announcements -->
-    <div class="line">
+    <!-- <div class="line">
         <img src="wp-content\themes\mdsi\assets\img\dot-line.svg" width="50" alt="line">
-    </div>
-    <section class="grid-3col dark-gray">
+    </div> -->
+    <section class="grid-3col white-text">
         <?php 
             $count = 1;
 
@@ -44,20 +44,20 @@
         ?>
     </section> <!-- Announcements -->
 
-    <div class="white-lines">
+    <!-- <div class="white-lines">
         <img src="wp-content\themes\mdsi\assets\img\white-dot-line.svg" width="500" alt="white-lines">
-    </div>
+    </div> -->
 
-    <section class="grid-4col half-gray">
+    <section class="grid-4col">
         <div class="card-no-margin mid-gray span-2">	
             <h2>Meet MDSi</h2>		
             <?php
                 echo do_shortcode( '[smartslider3 slider="2"]' );
             ?>
         </div>
-        <div class="curve">
+        <!-- <div class="curve">
             <img src="wp-content\themes\mdsi\assets\img\curves.svg" width="400" alt="">
-        </div>
+        </div> -->
         <div class="card-no-margin sm blue span-1">			
             <h2>Events</h2>
             <?php 
@@ -94,10 +94,10 @@
                 }
             ?>
         </div>
-        <div class="card-no-margin dark-gray span-1">
+        <div class="card-no-margin white span-1">
             <p>[add content]</p>
         </div>
-        <div class="card-no-margin light-gray span-2">
+        <div class="card-no-margin dark-gray span-2">
             <p>[add content]</p>
         </div>
         <div class="card-no-margin md white span-2">

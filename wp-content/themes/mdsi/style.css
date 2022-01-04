@@ -705,6 +705,10 @@ body::before {
 	display: grid;
 	padding: 1em 3em 0 3em;
 	overflow-x: hidden;
+	background-image: url("assets/img/connected-dots-gradient.jpg");
+	background-position: top;
+	/* background-size: cover; */
+	/* background-repeat: no-repeat; */
 }
 
 .grid-4col {
@@ -712,6 +716,9 @@ body::before {
 	position: relative;
 	padding: 1em 3em;
 	gap: 1.5em;
+	background-image: url("assets/img/squares.jpg");
+	background-position: top;
+	background-size: 50%;
 }
 
 /*--------------------------------------------------------------
@@ -1170,8 +1177,15 @@ a.active-page:visited {
 	color: var(--white);
 }
 
-.half-gray {
+.white-text {
+	color: var(--white);
+}
+
+.half-gray,
+.half-gray a,
+.half-gray a:visited {
 	background-color: var(--half-gray);
+	color: var(--white);
 }
 
 .pink {
@@ -1186,11 +1200,6 @@ a.active-page:visited {
 
 .orange {
 	background: var(--orange);
-	color: var(--white);
-}
-
-.dark {
-	background: var(--dark-gray);
 	color: var(--white);
 }
 
@@ -1245,9 +1254,6 @@ a.active-page:visited {
 	}
 	.span-1 {
 		grid-column: span 1;
-	}
-	.row-2 {
-
 	}
 	.span-2 {
 		grid-column: span 2;
