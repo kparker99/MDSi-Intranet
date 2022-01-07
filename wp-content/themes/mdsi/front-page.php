@@ -49,7 +49,7 @@
     </div> -->
 
     <section class="grid-4col">
-        <div class="card-no-margin mid-gray span-2">	
+        <div class="card-no-margin light-gray span-2">	
             <h2>Meet MDSi</h2>		
             <?php
                 echo do_shortcode( '[smartslider3 slider="2"]' );
@@ -94,11 +94,15 @@
                 }
             ?>
         </div>
-        <div class="card-no-margin white span-1">
+        <div class="card-no-margin dark-gray span-1">
             <p>[add content]</p>
         </div>
-        <div class="card-no-margin dark-gray span-2">
-            <p>[add content]</p>
+        <div class="card-no-margin light-gray span-2">
+            <h2>Open Positions</h2>
+                <?php
+                    echo do_shortcode( '[awsmjobs filters="no"]' );
+                ?>
+
         </div>
         <div class="card-no-margin md white span-2">
             <h2 class="birthday-anniversary">Birthdays</h2>
